@@ -3,18 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Favorite player</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <audio controls>
+      <source src="muz/MalangAamir_Khan.mp3" type="audio/mp3" />
+    </audio>
+    <img
+      src="img/Dhoom-3-mp3-song-download.jpg"
+      alt="album"
+      class="background"
+    />
     <div class="player">
+      <img src="img/Dhoom-3-mp3-song-download.jpg" alt="cover" class="cover" />
       <div class="controls">
-        <img src="svg/play.png" alt="play" />
-        <img src="svg/backward.png" alt="back" />
-        <img src="svg/forward.png" alt="next" />
+        <img src="svg/play.png" alt="play" class="play" />
+        <img src="svg/backward.png" alt="back" class="back" />
+        <img src="svg/forward.png" alt="next" class="next" />
         <div class="singer">Aamir</div>
-        <div class="title_song"></div>
+        <div class="title_song">Malang</div>
         <input type="range" id="progress" />
       </div>
     </div>
+    <script src="java.js"></script>
   </body>
 </html>
