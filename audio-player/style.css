@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   filter: blur(10px);
   z-index: -1;
 }
@@ -23,7 +23,8 @@
 .cover {
   position: absolute;
   width: 153%;
-  top: -2%;
+  top: -11%;
+  left: -12%;
   transition: 1s;
   z-index: 3;
 }
@@ -48,6 +49,14 @@
   left: 3%;
   top: 6%;
 }
+/* .pause {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 4;
+  left: 53%;
+  top: 6%;
+} */
 .play:hover,
 .back:hover,
 .next:hover {
@@ -88,14 +97,88 @@
   font-weight: bold;
   font-size: 15px;
 }
-#progress {
-  appearance: none;
+.current {
   position: absolute;
-  background: #000000;
+  left: 5%;
+  top: 47%;
+  z-index: 4;
+  font-weight: bold;
+  font-size: 15px;
+}
+.length {
+  position: absolute;
+  right: 5%;
+  top: 47%;
+  z-index: 4;
+  font-weight: bold;
+  font-size: 15px;
+}
+#progress {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    #727247 0%,
+    #d0d082 30%,
+    #fffffff7 50%,
+    #ffffff 100%
+  );
   z-index: 4;
   top: 50%;
   left: 15%;
   width: 70%;
   height: 3px;
   border-radius: 20px;
+}
+#progress::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 30%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #ffd700;
+}
+footer {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  background: #ffd900c4;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+.footer-data {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.logoRss {
+  width: 135px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(svg/rs_school_js.svg);
+  transition: 0.3s;
+}
+.Mygithub,
+.year {
+  text-decoration: none;
+  font-size: 15px;
+  padding: 0 20px;
+  transition: 0.3s;
+  color: #000000;
+  font-family: monospace;
+}
+.Mygithub:hover {
+  cursor: pointer;
+  color: #ce8e26e3;
+}
+.logoRss:hover {
+  filter: invert(75%) drop-shadow(16px 16px 20px #f22c04e3);
+  /* drop-shadow(16px 16px 20px #f22c04e3); */
 }
