@@ -97,7 +97,7 @@
   font-weight: bold;
   font-size: 15px;
 }
-.current {
+.currentTime {
   position: absolute;
   left: 5%;
   top: 47%;
@@ -105,7 +105,7 @@
   font-weight: bold;
   font-size: 15px;
 }
-.length {
+.lengthSong {
   position: absolute;
   right: 5%;
   top: 47%;
@@ -118,13 +118,7 @@
   appearance: none;
   outline: none;
   position: absolute;
-  background: linear-gradient(
-    to right,
-    #727247 0%,
-    #d0d082 30%,
-    #fffffff7 50%,
-    #ffffff 100%
-  );
+  background: #000000;
   z-index: 4;
   top: 50%;
   left: 15%;

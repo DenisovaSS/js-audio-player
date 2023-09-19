@@ -8,11 +8,40 @@ const backAll = document.querySelector(".background");
 const backCover = document.querySelector(".cover");
 const singer = document.querySelector(".singer");
 const titleSong = document.querySelector(".title_song");
+const currentTimeSong = document.querySelector(".currentTime");
+const lengthSong = document.querySelector(".lengthSong");
+const songs = ["I wanna love you", "understand", "Malang"];
+const singers = ["Akon", "BoyWithUke", "Aamir Khan"];
+let playNum = 0;
 let isPlay = false;
-function playAudio() {
+//
+// start audio
+audio.addEventListener(
+  "loadeddata",
+  //onloadedmetadata
+  () => {
+    lengthSong.textContent = getTime(audio.duration);
+    progress.max = audio.duration;
+    progress.value = audio.currentTime;
+  },
+  false,
+);
+function getTime(num) {
+  //128
+  let seconds = parseInt(num);
+  let minutes = Math.floor(seconds / 60);
+  return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+}
+if (!isPlay) {
+  setInterval(() => {
+    progress.value = audio.currentTime;
+    currentTimeSong.textContent = getTime(audio.currentTime);
+  }, 500);
+}
+function playAudioForPlayBtn() {
   if (!isPlay) {
     play();
-    audio.currentTime = 0;
+    // audio.currentTime = 0;
     isPlay = true;
   } else {
     isPlay = false;
@@ -27,16 +56,9 @@ function pause() {
   playBtn.src = "svg/play.png";
   audio.pause();
 }
-playBtn.addEventListener("click", playAudio);
-//change line
-progress.addEventListener("input", function () {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, #3a3a24 0%, #d0d082 ${value}%, #fffffff7 ${value}%, #ffffff 100%)`;
-});
+playBtn.addEventListener("click", playAudioForPlayBtn);
+
 //buttons next and back
-let playNum = 0;
-const songs = ["I wanna love you", "understand", "Malang"];
-const singers = ["Akon", "BoyWithUke", "Aamir Khan"];
 function PlaySong(song) {
   audio.src = `muz/${song}.mp3`;
   backAll.src = `img/img${playNum + 1}.jpg`;
@@ -49,7 +71,6 @@ function playNext() {
   if (playNum > songs.length - 1) {
     playNum = 0;
   }
-
   PlaySong(songs[playNum]);
   play();
   isPlay = true;
@@ -60,9 +81,16 @@ function playPrev() {
   if (playNum < 0) {
     playNum = songs.length - 1;
   }
-
   PlaySong(songs[playNum]);
   play();
   isPlay = true;
 }
 BtnBack.addEventListener("click", playPrev);
+
+//count progress
+function updateProgress() {
+  play();
+  audio.currentTime = progress.value;
+}
+progress.addEventListener("change", updateProgress);
+// console.dir(audio);
