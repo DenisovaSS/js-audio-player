@@ -28,6 +28,29 @@
   transition: 1s;
   z-index: 3;
 }
+.little_cover {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 4%;
+  right: 7%;
+  transition: 1s;
+  z-index: 4;
+  border-radius: 50%;
+  background: #ffd700;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+.heart {
+  font-size: 50px;
+  color: rgb(149, 44, 14);
+}
+.little_cover_active {
+  animation: rotateAnimation 3s linear infinite;
+}
 .controls {
   position: absolute;
   height: 50%;
@@ -46,8 +69,8 @@
   width: 50px;
   height: 50px;
   z-index: 4;
-  left: 3%;
-  top: 6%;
+  left: 5%;
+  top: 5%;
 }
 /* .pause {
   position: absolute;
@@ -68,20 +91,20 @@
   width: 30px;
   height: 30px;
   z-index: 4;
-  right: 9%;
-  top: 5%;
+  left: 1%;
+  top: 28%;
 }
 .next {
   position: absolute;
   width: 30px;
   height: 30px;
   z-index: 4;
-  right: 9%;
-  top: 25%;
+  left: 15%;
+  top: 28%;
 }
 .singer {
   position: absolute;
-  left: 21%;
+  left: 23%;
   top: 5%;
   font-size: 25px;
   font-family: monospace;
@@ -91,7 +114,7 @@
 }
 .title_song {
   position: absolute;
-  left: 21%;
+  left: 25%;
   top: 20%;
   z-index: 4;
   font-weight: bold;
@@ -136,10 +159,10 @@
 }
 footer {
   position: absolute;
-
   bottom: 0;
   left: 0;
   background: #ffd900c4;
+  box-shadow: rgba(234, 219, 52, 0.963) 0px -13px 50px 9px;
 }
 .footer-container {
   display: flex;
@@ -175,4 +198,12 @@ footer {
 .logoRss:hover {
   filter: invert(75%) drop-shadow(16px 16px 20px #f22c04e3);
   /* drop-shadow(16px 16px 20px #f22c04e3); */
+}
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -10,8 +10,11 @@ const singer = document.querySelector(".singer");
 const titleSong = document.querySelector(".title_song");
 const currentTimeSong = document.querySelector(".currentTime");
 const lengthSong = document.querySelector(".lengthSong");
+const muzPlate = document.querySelector(".little_cover");
+const heart = document.querySelector(".heart");
 const songs = ["I wanna love you", "understand", "Malang"];
 const singers = ["Akon", "BoyWithUke", "Aamir Khan"];
+const colors = ["rgb(149, 44, 14)", "rgb(72, 96, 96)", "rgb(169, 8, 0)"];
 let playNum = 0;
 let isPlay = false;
 //
@@ -32,6 +35,7 @@ function getTime(num) {
   let minutes = Math.floor(seconds / 60);
   return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
 }
+console.log(isPlay);
 if (!isPlay) {
   setInterval(() => {
     progress.value = audio.currentTime;
@@ -41,19 +45,23 @@ if (!isPlay) {
 function playAudioForPlayBtn() {
   if (!isPlay) {
     play();
-    // audio.currentTime = 0;
+
+    // audio.currentTime = 0; little_cover
     isPlay = true;
   } else {
     isPlay = false;
+
     pause();
   }
 }
 function play() {
   audio.play();
+  muzPlate.classList.add("little_cover_active");
   playBtn.src = "svg/pause.png";
 }
 function pause() {
   playBtn.src = "svg/play.png";
+  muzPlate.classList.remove("little_cover_active");
   audio.pause();
 }
 playBtn.addEventListener("click", playAudioForPlayBtn);
@@ -65,6 +73,7 @@ function PlaySong(song) {
   backCover.src = `img/img${playNum + 1}.jpg`;
   singer.textContent = singers[playNum];
   titleSong.textContent = song;
+  heart.style.color = `${colors[playNum]}`;
 }
 function playNext() {
   playNum++;
@@ -89,8 +98,8 @@ BtnBack.addEventListener("click", playPrev);
 
 //count progress
 function updateProgress() {
-  play();
+  //   play();
   audio.currentTime = progress.value;
 }
-progress.addEventListener("change", updateProgress);
+progress.addEventListener("click", updateProgress);
 // console.dir(audio);
