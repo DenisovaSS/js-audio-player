@@ -12,7 +12,7 @@ const currentTimeSong = document.querySelector(".currentTime");
 const lengthSong = document.querySelector(".lengthSong");
 const muzPlate = document.querySelector(".little_cover");
 const heart = document.querySelector(".heart");
-const songs = ["I wanna love you", "understand", "Malang"];
+const songs = ["I wanna love you", "Understand", "Malang"];
 const singers = ["Akon", "BoyWithUke", "Aamir Khan"];
 const colors = ["rgb(149, 44, 14)", "rgb(72, 96, 96)", "rgb(169, 8, 0)"];
 let playNum = 0;
@@ -101,5 +101,6 @@ function updateProgress() {
   //   play();
   audio.currentTime = progress.value;
 }
-progress.addEventListener("click", updateProgress);
+progress.addEventListener("input", updateProgress);
+
 // console.dir(audio);
